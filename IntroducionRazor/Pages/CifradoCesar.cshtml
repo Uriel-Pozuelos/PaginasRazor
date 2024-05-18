@@ -1,0 +1,41 @@
+﻿@page
+@model IntroducionRazor.Pages.CifradoCesarModel
+@{
+    ViewData["Title"] = "Cifrado Cesar";
+}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card rounded-xl shadow-sm p-4" style="max-width: 400px; width: 70%;">
+        <h4 class="card-titletext-center">Cifrado Cesar</h4>
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label
+                " for="texto">Texto:</label>
+                <input class="form-control" type="text" id="texto" asp-for="Texto" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="desplazamiento">Desplazamiento:</label>
+                <input class="form-control" type="number" id="desplazamiento" asp-for="Salto" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="resultado">Resultado:</label>
+                
+                @if (Model.Salida != null)
+                {
+                    <input class="form-control" type="text" id="resultado" asp-for="Salida" readonly value="@Model.Salida"/>
+                }
+
+           </div>
+
+           <button type="submit" class="btn btn-primary" asp-page-handler="Codificar">Cifrar</button>
+           <button type="submit" class="btn btn-success" asp-page-handler="Decodificar">Descifrar</button>
+      </form>
+
+        
+    </div>
+</div>
+
+
+

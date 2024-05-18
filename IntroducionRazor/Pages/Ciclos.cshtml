@@ -1,0 +1,43 @@
+﻿@page
+@model IntroducionRazor.Pages.CiclosModel
+@{
+    ViewData["Title"] = "Ciclos";
+}
+
+<h3>While</h3>
+@{
+    var contador = 0;
+    <!-- contador hasta que sea menor a -10  -->
+
+    while (contador < -10)
+    {
+        <p>Contador: @contador</p>
+        contador--;
+    }
+    
+}
+<br />
+
+<h3>Ejemplo con Do While</h3>
+@{
+    <!--Haz lo mismo que en el while pero con do while-->
+    
+    var contador2 = 0;
+    do
+    {
+        <p>Contador: @contador2</p>
+        contador2--;
+    } while (contador2 < -10);
+}
+<br />
+
+<h3>For</h3>
+@{
+    <!--Crea un for que imprima los números del 1 al 10-->
+    for (int i = 1; i <= 20; i++)
+    {
+        <p>Número: @i</p>
+    }
+}
+<br />
+

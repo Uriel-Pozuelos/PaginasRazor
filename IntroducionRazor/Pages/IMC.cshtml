@@ -1,0 +1,68 @@
+﻿@page
+@model IntroducionRazor.Pages.IMCModel
+@{
+    ViewData["Title"] = "IMC";
+}
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<style>
+    img{
+        height: 180px;
+        width: 180px;
+    }
+
+</style>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card rounded-xl shadow-sm p-4" style="max-width: 400px; width: 70%;">
+        <h4 class="card-title text-center">Calcular IMC</h4>
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label" for="altura">Altura (m):</label>
+                <input class="form-control" type="number" id="altura" step="0.01" asp-for="Altura" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="peso">Peso (kg):</label>
+                <input class="form-control" type="number" id="peso" step="0.01" asp-for="Peso" />
+            </div>
+            <div class="container bg-light p-3 border border-secondary">
+                @if (Model.res != 0)
+                {
+                    @switch (Model.res)
+                    {
+                        case var x when x < 18:
+                            <h4>Bajo peso</h4>
+                            <p>Tienes un peso bajo, se recomienda comer grasas y combinarlo con ejercicio.</p>
+                            <img class="rounded mx-auto d-block " src="/images/peso_bajo.webp" alt="Bajo peso" />
+                            break;
+                        case var x when x >= 18 && x < 25:
+                            <h4> Peso normal </h4>
+                            <p>¡Tienes un peso saludable, sigue así!</p>
+                            <img class="rounded mx-auto d-block " src="/images/peso_normal.webp" alt="Peso normal" />
+                            break;
+                        case var x when x >= 25 && x < 30:
+                            <h4>Sobrepeso</h4>
+                            <p>¡Cuidado! Tienes sobrepeso, se recomienda hacer ejercicio y llevar una dieta balanceada.</p>
+                            <img class="rounded mx-auto d-block " src="/images/sobrepeso.jpg" alt="Sobrepeso" />
+                            break;
+                        case var x when x >= 30 && x < 40:
+                            <h4>Obesidad grado 1</h4>
+                            <p>¡Cuidado! Tienes obesidad grado 1, se recomienda hacer ejercicio y llevar una dieta balanceada, además consulta con un médico.</p>
+                            <img class="rounded mx-auto d-block " src="/images/obesidad1.jpeg" alt="Obesidad grado 1" />
+                            break;
+                        case var x when x >= 40:
+                            <h4>Obesidad grado 2</h4>
+                            <p>¡Cuidado! Tienes obesidad grado 2, se recomienda hacer ejercicio y llevar una dieta balanceada, además consulta con un médico.</p>
+                            <img class="rounded mx-auto d-block " src="/images/obesidad2.webp" alt="Obesidad grado 2" />
+                            break;
+                    }
+                }
+            </div>
+            <div class="d-grid">
+                <input class="btn btn-info mt-3" type="submit" value="Calcular" />
+            </div>
+        </form>
+    </div>
+</div>

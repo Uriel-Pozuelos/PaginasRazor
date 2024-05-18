@@ -1,0 +1,23 @@
+﻿@page
+@model IntroducionRazor.Pages.SumaNumerosModel
+@{
+    ViewData["Title"] = "Suma Numeros";
+}
+
+<h3>Suma de dos números</h3>
+<form method="post">
+    <label>Número 1:</label>
+    <input type="number" step="0.1" asp-for="num1"/>
+    
+    <label>Número 2:</label>
+    <input type="number" step="0.1" asp-for="num2"/>
+
+    @if(Model.res != 0)
+    {
+        <label>Resultado</label>
+        <input type="number" value="@Model.res" />
+    }
+
+    <input type="submit" value="Calcular" />
+
+</form>

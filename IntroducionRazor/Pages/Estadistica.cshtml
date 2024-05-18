@@ -1,0 +1,43 @@
+﻿@page
+@model IntroducionRazor.Pages.EstadisticaModel
+@{
+    ViewData["Title"] = "Estadistica";
+}
+
+<div class="container mt-5">
+    <h1>Estadísticas de Arreglo Aleatorio</h1>
+
+    <div class="mt-3">
+        <h3>Números Generados:</h3>
+        <p>@string.Join(", ", Model.Numeros)</p>
+    </div>
+
+    <div class="mt-3">
+        <h3>Suma:</h3>
+        <p>@Model.Sum</p>
+    </div>
+
+    <div class="mt-3">
+        <h3>Promedio:</h3>
+        <p>@Model.Prom</p>
+    </div>
+
+    <div class="mt-3">
+        <h3>Moda:</h3>
+        <p>@string.Join(", ", Model.Moda)</p>
+    </div>
+
+    <div class="mt-3">
+        <h3>Mediana:</h3>
+        <p>@Model.Mediana</p>
+    </div>
+
+    <div>
+        <h3>Arreglo ordenado</h3>
+        <p>@string.Join(", ", Model.NumerosOrdenados)</p>
+    </div>
+
+    <form method="get">
+        <button type="submit" class="btn btn-primary mt-3">Generar Nuevos Números</button>
+    </form>
+</div>

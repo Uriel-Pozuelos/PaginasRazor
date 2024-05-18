@@ -1,0 +1,22 @@
+﻿@page
+@model IntroducionRazor.Pages.SintaxisBasicaModel
+@{
+    ViewData["Title"] = "Sintaxis Básica";
+}
+
+<!--Bloque simple-->
+@{
+    var nombre = "Lorena";
+}
+
+<!--Expresión en línea -->
+<p>El valor de la variable nombre es @nombre</p>
+
+<!--Bloque multilinea-->
+@{
+    var bienvenida = "Bienvenido a Razor";
+    var diaSemana = DateTime.Now.DayOfWeek;
+    var mensajeBienvenida = $"{bienvenida} hoy en León es {diaSemana}";
+}
+
+<p>El mensaje de bienvenida es: @mensajeBienvenida</p>
